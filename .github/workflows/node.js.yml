@@ -78,7 +78,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn --frozen-lockfile --prefer-offline
       - run: yarn run build
-      - run: tar -cvpzf prebuild-node${{ matrix.node-version }}.tar.gz --exclude=prebuild-node${{ matrix.node-version }}.tar.gz --exclude=node_modules --exclude=.git
+      - run: tar -cvpzf prebuild-node${{ matrix.node-version }}.tar.gz --exclude=prebuild-node${{ matrix.node-version }}.tar.gz --exclude=node_modules --exclude=.git ./
       - uses: actions/upload-artifact@v2
         with:
           name: Prebuild with node ${{ matrix.node-version }}
