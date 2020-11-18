@@ -78,8 +78,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn --frozen-lockfile --prefer-offline
       - run: yarn run build
-      - run: yarn install --production --ignore-scripts --frozen-lockfile --prefer-offline
-      - run: zip -5 -r prebuild-node${{ matrix.node-version }}.zip ./ -x '*.git*'
+      - run: zip -5 -r prebuild-node${{ matrix.node-version }}.zip ./ -x '*.git*' -x 'node_modules/*'
       - uses: actions/upload-artifact@v2
         with:
           name: Prebuild with node ${{ matrix.node-version }}
